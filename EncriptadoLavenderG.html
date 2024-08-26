@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de texto</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Century Schoolbook', serif;
+            background-image: url('Default_Images_of_cute_cartoon_monsters_all_making_gestures_li_0.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            text-align: center;
+            background-color: rgba(224, 179, 255, 0.9); /* Fondo lila con transparencia */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #text, #encrypted-text {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Century Schoolbook', serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6a5acd; /* Color lila más oscuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Mantén tus secretos encriptados</h1>
+        <textarea id="text" placeholder="Ingresa tu texto aquí"></textarea>
+        <button onclick="encryptText()">Generar</button>
+        <button onclick="clearText()">Borrar</button>
+        <div>
+            <textarea id="encrypted-text" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        function encryptText() {
+            const text = document.getElementById('text').value;
+            const encryptedText = btoa(text); // Encripta el texto en Base64
+            document.getElementById('encrypted-text').value = encryptedText;
+        }
+
+        function clearText() {
+            document.getElementById('text').value = '';
+            document.getElementById('encrypted-text').value = '';
+        }
+    </script>
+</body>
+
+</html>
